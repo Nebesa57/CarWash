@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface RecordsRepository extends JpaRepository<Records,Long> {
-
+    Optional<Records> findAllByDate(String date);
 }

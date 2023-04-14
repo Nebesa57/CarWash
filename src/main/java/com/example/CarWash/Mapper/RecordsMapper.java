@@ -7,7 +7,6 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface RecordsMapper {
-
     @Mapping(source = "user",target = "userDto")
     RecordsDto toDTOList(Records records);
 }
