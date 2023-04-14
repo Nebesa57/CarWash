@@ -1,5 +1,9 @@
 package com.example.CarWash.models;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,6 +24,9 @@ import javax.persistence.UniqueConstraint;
 				@UniqueConstraint(columnNames = "username"),
 				@UniqueConstraint(columnNames = "numberMobile")
 		})
+@Getter
+@Setter
+@NoArgsConstructor
 public class User {
 	
 	@Id
@@ -35,8 +42,6 @@ public class User {
 				inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
 
-	public User() {
-	}
 
 	public User(String username, String numberMobile, String password) {
 		this.username = username;
@@ -44,43 +49,4 @@ public class User {
 		this.password = password;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getnumberMobile() {
-		return numberMobile;
-	}
-
-	public void setnumberMobile(String numberMobile) {
-		this.numberMobile = numberMobile;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public Set<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
-	}
 }

@@ -17,11 +17,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.example.CarWash.configs.jwt.AuthEntryPointJwt;
 import com.example.CarWash.configs.jwt.AuthTokenFilter;
 import com.example.CarWash.service.UserDetailsServiceImpl;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebSecurity
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 	
 	@Autowired
 	UserDetailsServiceImpl userDetailsService;
@@ -64,6 +66,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
 	}
-	
+	@Override
+	public void addCorsMappings(CorsRegistry registry) {
+		registry.addMapping("/**")
+				.allowedOrigins("http://localhost:3000")
+				.allowedMethods("*");
+	}
 	
 }
