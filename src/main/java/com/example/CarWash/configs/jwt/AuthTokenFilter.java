@@ -1,4 +1,4 @@
-package com.example.demoauth.configs.jwt;
+package com.example.CarWash.configs.jwt;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.example.demoauth.service.UserDetailsServiceImpl;
+import com.example.CarWash.service.UserDetailsServiceImpl;
 
 public class AuthTokenFilter extends OncePerRequestFilter {
 	

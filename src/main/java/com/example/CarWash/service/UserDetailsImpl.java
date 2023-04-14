@@ -1,4 +1,4 @@
-package com.example.demoauth.service;
+package com.example.CarWash.service;
 
 import java.util.Collection;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.example.demoauth.models.User;
+import com.example.CarWash.models.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class UserDetailsImpl implements UserDetails {

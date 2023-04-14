@@ -1,4 +1,4 @@
-package com.example.demoauth.models;
+package com.example.CarWash.models;
 
 public enum ERole {
 	ROLE_USER,

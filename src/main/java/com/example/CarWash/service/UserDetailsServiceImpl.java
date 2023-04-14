@@ -1,4 +1,4 @@
-package com.example.demoauth.service;
+package com.example.CarWash.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demoauth.models.User;
-import com.example.demoauth.repository.UserRepository;
+import com.example.CarWash.models.User;
+import com.example.CarWash.repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

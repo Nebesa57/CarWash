@@ -1,4 +1,4 @@
-package com.example.demoauth.models;
+package com.example.CarWash.models;
 
 import java.util.HashSet;
 import java.util.Set;

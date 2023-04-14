@@ -1,4 +1,4 @@
-package com.example.demoauth.configs.jwt;
+package com.example.CarWash.configs.jwt;
 
 import java.io.IOException;
 import java.util.HashMap;

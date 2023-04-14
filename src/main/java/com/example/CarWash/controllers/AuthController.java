@@ -1,4 +1,4 @@
-package com.example.demoauth.controllers;
+package com.example.CarWash.controllers;
 
 import java.util.HashSet;
 import java.util.List;
@@ -18,17 +18,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demoauth.configs.jwt.JwtUtils;
-import com.example.demoauth.models.ERole;
-import com.example.demoauth.models.Role;
-import com.example.demoauth.models.User;
-import com.example.demoauth.pojo.JwtResponse;
-import com.example.demoauth.pojo.LoginRequest;
-import com.example.demoauth.pojo.MessageResponse;
-import com.example.demoauth.pojo.SignupRequest;
-import com.example.demoauth.repository.RoleRepository;
-import com.example.demoauth.repository.UserRepository;
-import com.example.demoauth.service.UserDetailsImpl;
+import com.example.CarWash.configs.jwt.JwtUtils;
+import com.example.CarWash.models.ERole;
+import com.example.CarWash.models.Role;
+import com.example.CarWash.models.User;
+import com.example.CarWash.pojo.JwtResponse;
+import com.example.CarWash.pojo.LoginRequest;
+import com.example.CarWash.pojo.MessageResponse;
+import com.example.CarWash.pojo.SignupRequest;
+import com.example.CarWash.repository.RoleRepository;
+import com.example.CarWash.repository.UserRepository;
+import com.example.CarWash.service.UserDetailsImpl;
 
 @RestController
 @RequestMapping("/api/auth")

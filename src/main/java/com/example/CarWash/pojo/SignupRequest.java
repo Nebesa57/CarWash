@@ -1,4 +1,4 @@
-package com.example.demoauth.pojo;
+package com.example.CarWash.pojo;
 
 import java.util.Set;
 

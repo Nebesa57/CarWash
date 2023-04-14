@@ -1,4 +1,4 @@
-package com.example.demoauth.models;
+package com.example.CarWash.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
