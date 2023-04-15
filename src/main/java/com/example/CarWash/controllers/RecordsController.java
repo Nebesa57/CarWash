@@ -45,6 +45,17 @@ public class RecordsController {
         }
     }
 
+    @DeleteMapping(value = "deleteRecords/{id}")
+        public String deleteRecords( @PathVariable("id") Long id){
+        try {
+            recordsRepository.deleteById(id);
+            return "Запись удалена";
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Something went wrong", e);
+        }
+    }
+
+
     @GetMapping("recordsTime")
     public List<RecordsDtoTime> getTime(@RequestParam String date){
         List<Records> arrayList = new ArrayList<>();
