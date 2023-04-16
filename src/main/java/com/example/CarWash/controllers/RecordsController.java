@@ -38,7 +38,7 @@ public class RecordsController {
     @PostMapping(value = "records/{id}")
     public String createMessage(@RequestBody Records records, @PathVariable("id") Long id) {
         try {
-            recordsRepository.save(new Records(records.getTime(),records.getDate(), userService.findById(id).get(),records.getService()));
+            recordsRepository.save(new Records(records.getService(),records.getStartTime(),records.getEndTime(),records.getDuration(),records.getDate(),userService.findById(id).get()));
             return "Вы записались";
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Something went wrong", e);
@@ -57,16 +57,22 @@ public class RecordsController {
 
 
     @GetMapping("recordsTime")
-    public List<RecordsDtoTime> getTime(@RequestParam String date){
+    public List<Integer> getTime(@RequestParam String date){
         List<Records> arrayList = new ArrayList<>();
-        List<RecordsDtoTime> arrayList2 = new ArrayList<>();
+        List<Integer> timeOfConvert = new ArrayList<>();
         recordsRepository.findAll().forEach(arrayList::add);
+
         for(Records arrayList1:arrayList){
-            if (arrayList1.getDate().equals(date)){
-                arrayList2.add(recordsMapperTime.INSTANCE.toDTO(arrayList1));
+            if(arrayList1.getDate().equals(date)) {
+                int stTime = Integer.parseInt(arrayList1.getStartTime());
+                int dur = Integer.parseInt(arrayList1.getDuration());
+                for (int a = 0; a < dur; a++) {
+                    timeOfConvert.add(stTime);
+                    stTime++;
+                }
             }
         }
-         return arrayList2;
+         return timeOfConvert;
 
     }
 

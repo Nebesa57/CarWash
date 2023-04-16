@@ -16,7 +16,9 @@ public class Records {
     private Long id;
     private String service;
     @JoinColumn(name = "time_record")
-    private String time;
+    private String startTime;
+    private String endTime;
+    private String duration;
     @JoinColumn(name = "date_record")
     private String date;
 
@@ -24,11 +26,12 @@ public class Records {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Records(String time, String date, User user, String service) {
-        this.time = time;
+    public Records(String service, String startTime, String endTime, String duration, String date, User user) {
         this.service = service;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.duration = duration;
         this.date = date;
         this.user = user;
     }
-
 }
