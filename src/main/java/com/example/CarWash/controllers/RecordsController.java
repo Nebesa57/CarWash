@@ -60,6 +60,10 @@ public class RecordsController {
     public List<Integer> getTime(@RequestParam String date){
         List<Records> arrayList = new ArrayList<>();
         List<Integer> timeOfConvert = new ArrayList<>();
+        List<Integer> allTime = new ArrayList<>();
+        for(int a = 8 ; a<=18; a++){
+            allTime.add(a);
+        }
         recordsRepository.findAll().forEach(arrayList::add);
 
         for(Records arrayList1:arrayList){
@@ -67,12 +71,13 @@ public class RecordsController {
                 int stTime = Integer.parseInt(arrayList1.getStartTime());
                 int dur = Integer.parseInt(arrayList1.getDuration());
                 for (int a = 0; a < dur; a++) {
-                    timeOfConvert.add(stTime);
+                   int numberIndex = allTime.indexOf(stTime);
+                   allTime.remove(numberIndex);
                     stTime++;
                 }
             }
         }
-         return timeOfConvert;
+         return allTime;
 
     }
 
