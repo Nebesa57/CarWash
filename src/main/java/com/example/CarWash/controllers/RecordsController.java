@@ -59,7 +59,6 @@ public class RecordsController {
     @GetMapping("recordsTime")
     public List<Integer> getTime(@RequestParam String date){
         List<Records> arrayList = new ArrayList<>();
-        List<Integer> timeOfConvert = new ArrayList<>();
         List<Integer> allTime = new ArrayList<>();
         for(int a = 8 ; a<=18; a++){
             allTime.add(a);
