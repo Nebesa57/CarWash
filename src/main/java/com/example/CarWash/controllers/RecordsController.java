@@ -37,6 +37,36 @@ public class RecordsController {
 
     @PostMapping(value = "records/{id}")
     public String createMessage(@RequestBody Records records, @PathVariable("id") Long id) {
+        ArrayList<Integer> TimeOfRecords= new ArrayList<>();
+        int start = Integer.parseInt(records.getStartTime());
+        int durat = Integer.parseInt(records.getDuration());
+        for(int a = 0; a<durat; a++){
+            TimeOfRecords.add(start);
+            start++;
+        }
+        List<Records> arrayList = new ArrayList<>();
+        ArrayList<Integer> TimeError = new ArrayList<>();
+        for(int a = 20; a<=23; a++){
+            TimeError.add(a);
+        }
+        recordsRepository.findAll().forEach(arrayList::add);
+        for(Records arrayList1:arrayList) {
+            if(records.getDate().equals(arrayList1.getDate())){
+                int StartTime = Integer.parseInt(arrayList1.getStartTime());
+                int DuringTime = Integer.parseInt(arrayList1.getDuration());
+                for(int a=0; a<DuringTime;a++){
+                    TimeError.add(StartTime);
+                    StartTime++;
+                }
+            }
+        }
+        for(int a = 0; a<TimeOfRecords.size(); a++){
+            for (int b = 0 ; b<TimeError.size(); b++){
+                if(TimeOfRecords.get(a)==TimeError.get(b)){
+                    return "Время занято";
+                }
+            }
+        }
         try {
             recordsRepository.save(new Records(records.getService(),records.getStartTime(),records.getEndTime(),records.getDuration(),records.getDate(),userService.findById(id).get()));
             return "Вы записались";
